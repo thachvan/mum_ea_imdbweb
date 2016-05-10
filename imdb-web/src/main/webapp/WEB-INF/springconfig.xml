@@ -11,7 +11,7 @@
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:annotation-driven />
-	<context:component-scan base-package="edu.mum.ea" />
+	<context:component-scan base-package="edu.mum.ea.controller" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -19,5 +19,41 @@
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/cs544" />
+		<property name="username" value="root" />
+		<property name="password" value="nimda" />
+	</bean>
+	
+	<bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="properties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="connection.pool.size">1</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties" ref="hibernateProperties" />
+		<property name="annotatedClasses">
+			<list>
+				<value>edu.mum.ea.imdb.model.Actor</value>
+				<value>edu.mum.ea.imdb.model.Character</value>
+				<value>edu.mum.ea.imdb.model.Comment</value>
+				<value>edu.mum.ea.imdb.model.Director</value>
+				<value>edu.mum.ea.imdb.model.Movie</value>
+				<value>edu.mum.ea.imdb.model.Person</value>
+				<value>edu.mum.ea.imdb.model.User</value>
+			</list>
+		</property>
 	</bean>
 </beans>
