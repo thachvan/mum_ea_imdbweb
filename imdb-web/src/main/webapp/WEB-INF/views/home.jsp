@@ -1,48 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>IMDB - EA project</title>
-	
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>IMDB - EA project</title>
+
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css" />
 </head>
 
 <body>
-	<h1>IMDB</h1>
-	
-	<form class="form-horizontal" role="form"> 
-   <div class="form-group"> 
-      <label for="firstname" class="col-sm-2 control-label">First Name</label> 
-      <div class="col-sm-10"> 
-         <input type="text" class="form-control" id="firstname"  
-            placeholder="Enter First Name"> 
-      </div> 
-   </div> 
-   <div class="form-group"> 
-      <label for="lastname" class="col-sm-2 control-label">Last Name</label> 
-      <div class="col-sm-10"> 
-         <input type="text" class="form-control" id="lastname"  
-            placeholder="Enter Last Name"> 
-      </div> 
-   </div> 
-   <div class="form-group"> 
-      <div class="col-sm-offset-2 col-sm-10">
-       <div class="checkbox"> 
-            <label> 
-               <input type="checkbox"> Remember me 
-            </label> 
-         </div> 
-      </div> 
-   </div> 
-   <div class="form-group"> 
-      <div class="col-sm-offset-2 col-sm-10"> 
-         <button type="submit" class="btn btn-default">Sign in</button> 
-      </div> 
-   </div> 
-</form> 
+	<div class="container">
+		<h1 align="center">IMDB</h1>
+
+		<form role="form" action="search">
+			<div class="form-group">
+				<label>Name</label> <input name="name" class="form-control"
+					type="text" placeholder="Movie name" maxlength="256"
+					value="Chicago">
+			</div>
+			<div class="form-group">
+				<label>Genre</label> <select name="genre" class="form-control">
+					<option value="drama">Drama</option>
+					<option value="action">Action</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Rating</label> <input name="rating" class="form-control"
+					type="number" step="0.1" min="0" max="10" value="7.9" />
+			</div>
+			<div class="form-group">
+				<label>Year</label> <input name="year" class="form-control"
+					type="number" step="1" min="1900" max="2020" value="2012" />
+			</div>
+			<div class="form-group">
+				<label>Artist</label> <input name="artist" class="form-control"
+					type="text" placeholder="Artist name" maxlength="128"
+					value="Taylor Kinney">
+			</div>
+			<div class="form-group">
+				<label>Character</label> <input name="character"
+					class="form-control" type="text" placeholder="Character"
+					maxlength="128" value="Kelly Severide">
+			</div>
+			<div class="form-group">
+				<label>Director</label> <input name="character" class="form-control"
+					type="text" placeholder="Character" maxlength="128"
+					value="Joe Chappelle">
+			</div>
+			<div class="form-group" align="center">
+				<button type="reset" class="btn">Reset</button>
+				<button type="submit" class="btn btn-default">Search</button>
+			</div>
+		</form>
+	</div>
 </body>
 
 </html>
