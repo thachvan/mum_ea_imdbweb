@@ -1,0 +1,7 @@
+Notes:
+1. This project runs on Tomcat 8.0 and JDK 1.8 using Eclipse
+2. If there is 45-second timeout error when starting, please increase the timeout value of Tomcat to 120 seconds or more
+3. All initial data is populated automatically, done by init() function inside MovieDao class
+4. By default, the Home page lists all available movies
+5. When clicking Search, only movies which match the query are displayed
+6. I haven't done the Search page yet due to lacking of time :(

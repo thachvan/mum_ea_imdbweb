@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -55,6 +58,44 @@
 				<button type="submit" class="btn btn-default">Search</button>
 			</div>
 		</form>
+		
+		<c:forEach var="movie" items="${moviesList}">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 class="panel-title">${movie.name}</h2>
+				</div>
+				<table class="table">
+					<tr>
+						<td>
+							<img src="<%=request.getContextPath()%>${movie.poster}">
+						</td>
+						<td>
+							<h3><b>Title: </b>${movie.name}</h3>
+							<h3><b>Year: </b>${movie.year}</h3>
+							<h3><b>Summary: </b>${movie.summary}</h3>
+							<h3><b>Genre: </b>${movie.genre}</h3>
+							<h3><b>Rating: </b>${movie.rating}</h3>
+							<h3><b>Characters: </b>
+								<c:forEach var="character" items="${movie.characters}">
+									${character.name}<br>
+								</c:forEach>
+							</h3>
+							<h3><b>Actors: </b>
+								<c:forEach var="character" items="${movie.characters}">
+									${character.actor.name}<br>
+								</c:forEach>
+							</h3>
+							<h3><b>Directors: </b>
+								<c:forEach var="director" items="${movie.directors}">
+									${director.name}<br>
+								</c:forEach>
+							</h3>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<p></p>
+		</c:forEach>
 	</div>
 </body>
 

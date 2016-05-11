@@ -8,6 +8,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -27,7 +29,9 @@ public class Movie {
 	int id;
 
 	private String name;
+
 	private Genre genre;
+
 	private double rating;
 	private int year;
 
@@ -86,12 +90,21 @@ public class Movie {
 		this.poster = posterFilePath;
 	}
 
+	@Enumerated(EnumType.STRING)
 	public Genre getGenre() {
 		return genre;
 	}
 
 	public void setGenre(Genre genre) {
 		this.genre = genre;
+	}
+
+	public Set<Character> getCharacters() {
+		return characters;
+	}
+
+	public Set<Director> getDirectors() {
+		return directors;
 	}
 
 	public void addCharacter(Character... characters) {
