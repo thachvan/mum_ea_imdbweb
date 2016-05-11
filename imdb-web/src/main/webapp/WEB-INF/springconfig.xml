@@ -11,7 +11,7 @@
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:annotation-driven />
-	<context:component-scan base-package="edu.mum.ea.controller" />
+	<context:component-scan base-package="edu.mum.ea" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -46,13 +46,13 @@
 		<property name="hibernateProperties" ref="hibernateProperties" />
 		<property name="annotatedClasses">
 			<list>
-				<value>edu.mum.ea.imdb.model.Actor</value>
-				<value>edu.mum.ea.imdb.model.Character</value>
-				<value>edu.mum.ea.imdb.model.Comment</value>
-				<value>edu.mum.ea.imdb.model.Director</value>
-				<value>edu.mum.ea.imdb.model.Movie</value>
-				<value>edu.mum.ea.imdb.model.Person</value>
-				<value>edu.mum.ea.imdb.model.User</value>
+				<value>edu.mum.ea.model.Actor</value>
+				<value>edu.mum.ea.model.Character</value>
+				<value>edu.mum.ea.model.Comment</value>
+				<value>edu.mum.ea.model.Director</value>
+				<value>edu.mum.ea.model.Movie</value>
+				<value>edu.mum.ea.model.Person</value>
+				<value>edu.mum.ea.model.User</value>
 			</list>
 		</property>
 	</bean>
